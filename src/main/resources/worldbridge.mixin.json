@@ -7,9 +7,6 @@
   "mixins": [
     "IntegratedServerMixin"
   ],
-  "client": [
-    "IntegratedServerMixin"
-  ],
   "injectors": {
     "defaultRequire": 1
   }

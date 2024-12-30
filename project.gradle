@@ -1,1 +1,7 @@
 // Put your project-specific buildscript code in this file
+
+// Project dependencies with shadow will be included in the mods JAR file
+dependencies {
+    shadow('org.bitlet:weupnp:0.1.4')
+    shadow('org.spongepowered:mixin:0.7.11-SNAPSHOT')
+}
