@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.6",
+  "package": "com.viktoreeej.worldbridge.mixin",
+  "refmap": "worldbridge.mixin.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "IntegratedServerMixin"
+  ],
+  "client": [
+    "IntegratedServerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
