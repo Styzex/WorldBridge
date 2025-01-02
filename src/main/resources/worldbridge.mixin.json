@@ -5,7 +5,8 @@
   "refmap": "worldbridge.mixin.refmap.json",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "IntegratedServerMixin"
+    "IntegratedServerMixin",
+    "NetworkSystemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,7 +1,5 @@
 package com.viktoreeej.worldbridge;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 import org.bitlet.weupnp.GatewayDevice;
 import org.bitlet.weupnp.GatewayDiscover;
 
@@ -9,7 +7,6 @@ import java.net.InetAddress;
 import java.util.Map;
 
 public class UPnPManager {
-    private static final Logger LOGGER = LogManager.getLogger();
     private static GatewayDevice currentDevice;
 
     public static boolean openPort(int port) {
@@ -18,7 +15,7 @@ public class UPnPManager {
             Map<InetAddress, GatewayDevice> devices = discover.discover();
 
             if (devices.isEmpty()) {
-                LOGGER.warn("No UPnP devices found");
+                Worldbridge.LOGGER.warn("No UPnP devices found");
                 return false;
             }
 
@@ -45,10 +42,10 @@ public class UPnPManager {
                     "Minecraft Server Discovery"
             );
 
-            LOGGER.info("Successfully mapped port {}", port);
+            Worldbridge.LOGGER.info("Successfully mapped port {}", port);
             return true;
         } catch (Exception e) {
-            LOGGER.error("Failed to set up UPnP port forwarding", e);
+            Worldbridge.LOGGER.error("Failed to set up UPnP port forwarding", e);
             return false;
         }
     }
@@ -58,10 +55,10 @@ public class UPnPManager {
             if (currentDevice != null) {
                 currentDevice.deletePortMapping(port, "TCP");
                 currentDevice.deletePortMapping(port, "UDP");
-                LOGGER.info("Successfully closed port {}", port);
+                Worldbridge.LOGGER.info("Successfully closed port {}", port);
             }
         } catch (Exception e) {
-            LOGGER.error("Failed to close port mappings", e);
+            Worldbridge.LOGGER.error("Failed to close port mappings", e);
         }
     }
 }

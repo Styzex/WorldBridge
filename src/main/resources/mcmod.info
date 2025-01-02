@@ -3,7 +3,7 @@
   "modid": "worldbridge",
   "name": "WorldBridge",
   "description": "This mod allows you to host a LAN world using UPnP to your friend without port forwarding.",
-  "version": "0.1",
+  "version": "0.5",
   "mcversion": "1.7.10",
   "url": "",
   "updateUrl": "",

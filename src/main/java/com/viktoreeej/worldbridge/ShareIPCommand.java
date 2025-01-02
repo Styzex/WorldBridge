@@ -1,5 +1,7 @@
 package com.viktoreeej.worldbridge;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
@@ -22,12 +24,16 @@ public class ShareIPCommand implements ICommand {
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "/shareIP";
+        return "/shareip";
+    }
+    @Override
+    public List getCommandAliases() {
+        return Collections.emptyList();
     }
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
-        MinecraftServer server = MinecraftServer.getServer();
+        MinecraftServer server = FMLCommonHandler.instance().getMinecraftServerInstance();
         if (server instanceof IntegratedServer) {
             IntegratedServer integratedServer = (IntegratedServer) server;
             if (integratedServer.getPublic()) {
@@ -54,13 +60,8 @@ public class ShareIPCommand implements ICommand {
     }
 
     @Override
-    public List<String> getCommandAliases() {
-        return null; // Optional: return a list of aliases for the command
-    }
-
-    @Override
-    public boolean canCommandSenderUseCommand(ICommandSender sender) {
-        return true; // You can add permission checks here
+    public boolean canCommandSenderUseCommand(ICommandSender p_71519_1_) {
+        return false;
     }
 
     @Override
@@ -69,8 +70,8 @@ public class ShareIPCommand implements ICommand {
     }
 
     @Override
-    public boolean isUsernameIndex(String[] args, int index) {
-        return false; // Optional: specify if the argument at the index is a username
+    public boolean isUsernameIndex(String[] p_82358_1_, int p_82358_2_) {
+        return false;
     }
 
     @Override
